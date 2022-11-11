@@ -16,7 +16,7 @@ function WarehouseInventoryCard() {
   const [warehouseInventory, setwarehouseInventory] = useState([]);
   const history = useHistory();
   const params = useParams();
-  console.log(params.warehouseId);
+  // console.log(params.warehouseId);
 
   const handlePencilClick = (inventoryItemId) => {
     history.push(`/edit/inventory/${inventoryItemId}`);
