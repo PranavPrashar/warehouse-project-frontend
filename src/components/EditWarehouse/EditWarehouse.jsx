@@ -30,17 +30,39 @@ function EditWarehouse() {
   useEffect(() => {
     warehouseToEditDetails();
   });
-
-      const handleBackClick = (event) => {
-      event.preventDefault();
-      history.goBack();
-    };
+  const handleBackClick = (event) => {
+    event.preventDefault();
+    history.goBack();
+  };
   const handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
   };
 
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleAddressChange = (event) => {
+    setAddress(event.target.value);
+  };
+
+  const handleCityChange = (event) => {
+    setCity(event.target.value);
+  };
+
+  const handleCountryChange = (event) => {
+    setCountry(event.target.value);
+  };
+
+  const handleContactName = (event) => {
+    setcontact_name(event.target.value);
+  };
+
+  const handleContactPosition = (event) => {
+    setcontact_position(event.target.value);
+  };
 
   // submit
   const handleFormSubmit = (event) => {
@@ -133,248 +155,248 @@ function EditWarehouse() {
       });
   };
 
-  return <div className="form">
-          {warehouseToEdit ? (
-            <main className="edit-warehouse">
-              <div className="edit-warehouse__title-wrapper">
-                <img
-                  onClick={handleBackClick}
-                  className="edit-warehouse__back-arrow"
-                  src={backArrow}
-                  alt="Back Arrow"
-                />
-                <h1 className="edit-warehouse__title">Edit Warehouse</h1>
-              </div>
-  
-              <form
-                className="edit-warehouse-form"
-                onSubmit={handleFormSubmit}
-                type="submit"
-              >
-                <section className="edit-warehouse-form__article-wrapper">
-                  <article className="edit-warehouse-form__warehouse-details">
-                    <h2>Warehouse Details</h2>
-  
-                    <div className="edit-warehouse-form__input-wrapper">
-                      <label className="edit-warehouse-form__label" id="name">
-                        Warehouse Name
-                      </label>
-                      <input
-                        // placeholder={this.state.name}
-                        htmlFor="name"
-                        name="name"
-                        className={`edit-warehouse-form__input ${inputClass}`}
-                        type="text"
-                        onChange={handleChange}
-                        value={name}
-                      ></input>
-                      <label
-                        className={`edit-warehouse-form__error-label ${errorLabel}`}
-                        id="error"
-                      >
-                        <img
-                          className={`edit-warehouse-form__error-label--img`}
-                          src={error}
-                          alt="exclamation"
-                        />{" "}
-                        This field is required
-                      </label>
-                      <label className="edit-warehouse-form__label" id="editress">
-                        Street editress
-                      </label>
-                      <input
-                        // placeholder={this.state.address}
-                        htmlFor="address"
-                        name="address"
-                        className={`edit-warehouse-form__input ${inputClass}`}
-                        type="text"
-                        onChange={handleChange}
-                        value={address}
-                      ></input>
-                      <label
-                        className={`edit-warehouse-form__error-label ${errorLabel}`}
-                        id="error"
-                      >
-                        <img
-                          className={`edit-warehouse-form__error-label--img`}
-                          src={error}
-                          alt="exclamation"
-                        />{" "}
-                        This field is required
-                      </label>
-                      <label className="edit-warehouse-form__label" id="city">
-                        City
-                      </label>
-                      <input
-                        // placeholder={city}
-                        htmlFor="city"
-                        name="city"
-                        className={`edit-warehouse-form__input ${inputClass}`}
-                        type="text"
-                        onChange={handleChange}
-                        value={city}
-                      ></input>
-                      <label
-                        className={`edit-warehouse-form__error-label ${errorLabel}`}
-                        id="error"
-                      >
-                        <img
-                          className={`edit-warehouse-form__error-label--img`}
-                          src={error}
-                          alt="exclamation"
-                        />{" "}
-                        This field is required
-                      </label>
-                      <label className="edit-warehouse-form__label" id="country">
-                        Country
-                      </label>
-                      <input
-                        // placeholder={this.state.warehouseToEdit.country}
-                        htmlFor="country"
-                        name="country"
-                        className={`edit-warehouse-form__input ${inputClass}`}
-                        type="text"
-                        onChange={handleChange}
-                        value={country}
-                      ></input>
-                      <label
-                        className={`edit-warehouse-form__error-label ${errorLabel}`}
-                        id="error"
-                      >
-                        <img
-                          className={`edit-warehouse-form__error-label--img`}
-                          src={error}
-                          alt="exclamation"
-                        />{" "}
-                        This field is required
-                      </label>
-                    </div>
-                  </article>
-  
-                  <article className="edit-warehouse-form__contact-details">
-                    <h2>Contact Details</h2>
-  
-                    <div className="edit-warehouse-form__input-wrapper">
-                      <label className="edit-warehouse-form__label" id="name">
-                        Contact Name
-                      </label>
-                      <input
-                        // placeholder={this.state.warehouseToEdit.contact.name}
-                        htmlFor="name"
-                        name="contact_name"
-                        className={`edit-warehouse-form__input ${inputClass}`}
-                        type="text"
-                        onChange={handleChange}
-                        value={contact_name}
-                      ></input>
-                      <label
-                        className={`edit-warehouse-form__error-label ${errorLabel}`}
-                        id="error"
-                      >
-                        <img
-                          className={`edit-warehouse-form__error-label--img`}
-                          src={error}
-                          alt="exclamation"
-                        />{" "}
-                        This field is required
-                      </label>
-                      <label className="edit-warehouse-form__label" id="position">
-                        Position
-                      </label>
-                      <input
-                        // placeholder={this.state.warehouseToEdit.contact.position}
-                        htmlFor="position"
-                        name="contact_position"
-                        className={`edit-warehouse-form__input ${inputClass}`}
-                        type="text"
-                        onChange={handleChange}
-                        value={contact_position}
-                      ></input>
-                      <label
-                        className={`edit-warehouse-form__error-label ${errorLabel}`}
-                        id="error"
-                      >
-                        <img
-                          className={`edit-warehouse-form__error-label--img`}
-                          src={error}
-                          alt="exclamation"
-                        />{" "}
-                        This field is required
-                      </label>
-                      <label className="edit-warehouse-form__label" id="phone">
-                        Phone Number
-                      </label>
-                      <input
-                        // placeholder={this.state.warehouseToEdit.contact.phone}
-                        htmlFor="phone"
-                        name="contact_phone"
-                        className={`edit-warehouse-form__input ${inputClass}`}
-                        type="tel"
-                        onChange={handleChange}
-                        value={contact_phone}
-                      ></input>
-                      <label
-                        className={`edit-warehouse-form__error-label ${errorLabel}`}
-                        id="error"
-                      >
-                        <img
-                          className={`edit-warehouse-form__error-label--img`}
-                          src={error}
-                          alt="exclamation"
-                        />{" "}
-                        This field is required
-                      </label>
-                      <label className="edit-warehouse-form__label" id="email">
-                        Email
-                      </label>
-                      <input
-                        // placeholder={this.state.warehouseToEdit.contact.email}
-                        htmlFor="email"
-                        name="contact_email"
-                        className={`edit-warehouse-form__input ${inputClass}`}
-                        type="email"
-                        onChange={handleChange}
-                        value={contact_email}
-                      ></input>
-                      <label
-                        className={`edit-warehouse-form__error-label ${errorLabel}`}
-                        id="error"
-                      >
-                        <img
-                          className={`edit-warehouse-form__error-label--img`}
-                          src={error}
-                          alt="exclamation"
-                        />{" "}
-                        This field is required
-                      </label>
-                    </div>
-                  </article>
-                </section>
-                {submitError && (
-                  <p className="submitError">
-                    Cannot edit this warehouse, please fill out all fields
-                  </p>
-                )}
-                <section className="edit-warehouse-form__button-wrapper">
-                  <button
-                    className="edit-warehouse-form__cancel-button"
-                    onClick={handleBackClick}
+  return (
+    <div className="form">
+      {warehouseToEdit ? (
+        <main className="edit-warehouse">
+          <div className="edit-warehouse__title-wrapper">
+            <img
+              onClick={handleBackClick}
+              className="edit-warehouse__back-arrow"
+              src={backArrow}
+              alt="Back Arrow"
+            />
+            <h1 className="edit-warehouse__title">Edit Warehouse</h1>
+          </div>
+
+          <form
+            className="edit-warehouse-form"
+            onSubmit={handleFormSubmit}
+            type="submit"
+          >
+            <section className="edit-warehouse-form__article-wrapper">
+              <article className="edit-warehouse-form__warehouse-details">
+                <h2>Warehouse Details</h2>
+
+                <div className="edit-warehouse-form__input-wrapper">
+                  <label className="edit-warehouse-form__label" id="name">
+                    Warehouse Name
+                  </label>
+                  <input
+                    // placeholder={this.state.name}
+                    htmlFor="name"
+                    name="name"
+                    className={`edit-warehouse-form__input ${inputClass}`}
+                    type="text"
+                    onChange={handleNameChange}
+                    value={name}
+                  ></input>
+                  <label
+                    className={`edit-warehouse-form__error-label ${errorLabel}`}
+                    id="error"
                   >
-                    Cancel
-                  </button>
-                  <button className="edit-warehouse-form__edit-button">
-                    Save
-                  </button>
-                </section>
-              </form>
-              <p className="edit-warehouse__copyright">
-                InStock Inc. All Rights Reserved
+                    <img
+                      className={`edit-warehouse-form__error-label--img`}
+                      src={error}
+                      alt="exclamation"
+                    />{" "}
+                    This field is required
+                  </label>
+                  <label className="edit-warehouse-form__label" id="editress">
+                    Street editress
+                  </label>
+                  <input
+                    // placeholder={this.state.address}
+                    htmlFor="address"
+                    name="address"
+                    className={`edit-warehouse-form__input ${inputClass}`}
+                    type="text"
+                    onChange={handleAddressChange}
+                    value={address}
+                  ></input>
+                  <label
+                    className={`edit-warehouse-form__error-label ${errorLabel}`}
+                    id="error"
+                  >
+                    <img
+                      className={`edit-warehouse-form__error-label--img`}
+                      src={error}
+                      alt="exclamation"
+                    />{" "}
+                    This field is required
+                  </label>
+                  <label className="edit-warehouse-form__label" id="city">
+                    City
+                  </label>
+                  <input
+                    // placeholder={city}
+                    htmlFor="city"
+                    name="city"
+                    className={`edit-warehouse-form__input ${inputClass}`}
+                    type="text"
+                    onChange={handleCityChange}
+                    value={city}
+                  ></input>
+                  <label
+                    className={`edit-warehouse-form__error-label ${errorLabel}`}
+                    id="error"
+                  >
+                    <img
+                      className={`edit-warehouse-form__error-label--img`}
+                      src={error}
+                      alt="exclamation"
+                    />{" "}
+                    This field is required
+                  </label>
+                  <label className="edit-warehouse-form__label" id="country">
+                    Country
+                  </label>
+                  <input
+                    // placeholder={this.state.warehouseToEdit.country}
+                    htmlFor="country"
+                    name="country"
+                    className={`edit-warehouse-form__input ${inputClass}`}
+                    type="text"
+                    onChange={handleCountryChange}
+                    value={country}
+                  ></input>
+                  <label
+                    className={`edit-warehouse-form__error-label ${errorLabel}`}
+                    id="error"
+                  >
+                    <img
+                      className={`edit-warehouse-form__error-label--img`}
+                      src={error}
+                      alt="exclamation"
+                    />{" "}
+                    This field is required
+                  </label>
+                </div>
+              </article>
+
+              <article className="edit-warehouse-form__contact-details">
+                <h2>Contact Details</h2>
+
+                <div className="edit-warehouse-form__input-wrapper">
+                  <label className="edit-warehouse-form__label" id="name">
+                    Contact Name
+                  </label>
+                  <input
+                    // placeholder={this.state.warehouseToEdit.contact.name}
+                    htmlFor="name"
+                    name="contact_name"
+                    className={`edit-warehouse-form__input ${inputClass}`}
+                    type="text"
+                    onChange={handleContactName}
+                    value={contact_name}
+                  ></input>
+                  <label
+                    className={`edit-warehouse-form__error-label ${errorLabel}`}
+                    id="error"
+                  >
+                    <img
+                      className={`edit-warehouse-form__error-label--img`}
+                      src={error}
+                      alt="exclamation"
+                    />{" "}
+                    This field is required
+                  </label>
+                  <label className="edit-warehouse-form__label" id="position">
+                    Position
+                  </label>
+                  <input
+                    // placeholder={this.state.warehouseToEdit.contact.position}
+                    htmlFor="position"
+                    name="contact_position"
+                    className={`edit-warehouse-form__input ${inputClass}`}
+                    type="text"
+                    onChange={handleContactPosition}
+                    value={contact_position}
+                  ></input>
+                  <label
+                    className={`edit-warehouse-form__error-label ${errorLabel}`}
+                    id="error"
+                  >
+                    <img
+                      className={`edit-warehouse-form__error-label--img`}
+                      src={error}
+                      alt="exclamation"
+                    />{" "}
+                    This field is required
+                  </label>
+                  <label className="edit-warehouse-form__label" id="phone">
+                    Phone Number
+                  </label>
+                  <input
+                    // placeholder={this.state.warehouseToEdit.contact.phone}
+                    htmlFor="phone"
+                    name="contact_phone"
+                    className={`edit-warehouse-form__input ${inputClass}`}
+                    type="tel"
+                    onChange={handleChange}
+                    value={contact_phone}
+                  ></input>
+                  <label
+                    className={`edit-warehouse-form__error-label ${errorLabel}`}
+                    id="error"
+                  >
+                    <img
+                      className={`edit-warehouse-form__error-label--img`}
+                      src={error}
+                      alt="exclamation"
+                    />{" "}
+                    This field is required
+                  </label>
+                  <label className="edit-warehouse-form__label" id="email">
+                    Email
+                  </label>
+                  <input
+                    // placeholder={this.state.warehouseToEdit.contact.email}
+                    htmlFor="email"
+                    name="contact_email"
+                    className={`edit-warehouse-form__input ${inputClass}`}
+                    type="email"
+                    onChange={handleChange}
+                    value={contact_email}
+                  ></input>
+                  <label
+                    className={`edit-warehouse-form__error-label ${errorLabel}`}
+                    id="error"
+                  >
+                    <img
+                      className={`edit-warehouse-form__error-label--img`}
+                      src={error}
+                      alt="exclamation"
+                    />{" "}
+                    This field is required
+                  </label>
+                </div>
+              </article>
+            </section>
+            {submitError && (
+              <p className="submitError">
+                Cannot edit this warehouse, please fill out all fields
               </p>
-            </main>
-          ) : (
-            <p>Page Loading...</p>
-          )}
-        </div>;
+            )}
+            <section className="edit-warehouse-form__button-wrapper">
+              <button
+                className="edit-warehouse-form__cancel-button"
+                onClick={handleBackClick}
+              >
+                Cancel
+              </button>
+              <button className="edit-warehouse-form__edit-button">Save</button>
+            </section>
+          </form>
+          <p className="edit-warehouse__copyright">
+            InStock Inc. All Rights Reserved
+          </p>
+        </main>
+      ) : (
+        <p>Page Loading...</p>
+      )}
+    </div>
+  );
 }
 
 // class EditWarehouse extends Component {
