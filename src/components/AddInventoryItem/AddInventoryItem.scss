@@ -1,0 +1,269 @@
+@use '../../styles/typography';
+@use '../../styles/mixins';
+@use '../../styles/variables';
+
+.add-inventory {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 5px;
+    position: absolute;
+    top: 8rem;
+    width: 100%;
+
+    @include mixins.tablet {
+        top: 5rem;
+    }
+
+
+
+    &__title-wrapper {
+        display: flex;
+        padding: 1rem 1rem 0 1rem;
+        border: 1px solid black;
+        border-bottom: none;
+        background-color: white;
+        height: 6rem;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+
+        @include mixins.tablet {
+            align-items: center;
+            gap: 1rem;
+        }
+
+        @include mixins.desktop {
+            margin: 0 4rem;
+        }
+    }
+
+    &__title {
+        font-size: 1.6rem;
+
+        @include mixins.tablet {
+            font-size: 2rem;
+        }
+    }
+
+    &__copyright {
+        text-align: center;
+
+        @include mixins.tablet {
+            margin-top: 15vh;
+        }
+    }
+
+    &__back-arrow {
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        @include mixins.tablet {
+            height: 2rem;
+            width: 2rem;
+        }
+    }
+}
+
+.add-inventory-form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+
+
+    @include mixins.desktop {
+        margin: 0 4rem;
+    }
+
+    &__article-wrapper {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        border-bottom: none;
+
+        @include mixins.tablet {
+            flex-direction: row;
+        }
+    }
+
+    &__input-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        @include mixins.tablet {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    &__radio-wrapper {
+        display: flex;
+        align-items: center;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__button-wrapper {
+        display: flex;
+        background-color: variables.$page-backgr-cta-backgr-color;
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid black;
+        border-top: none;
+        gap: 1rem;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+
+
+        @include mixins.tablet {
+            justify-content: flex-end;
+        }
+    }
+
+    &__inventory-details {
+        border-bottom: 1px solid black;
+        padding: 0 1rem 1rem 1rem;
+
+        @include mixins.tablet {
+            border: none;
+            width: 50%;
+            padding: 0 1rem;
+            margin: 1rem 0;
+            border-right: 1px solid gray;
+        }
+    }
+
+    &__item-availability {
+        padding: 0 1rem 1rem 1rem;
+
+        @include mixins.tablet {
+            width: 50%;
+            padding: 0 1rem;
+            margin: 1rem 0;
+        }
+    }
+
+    &__status {
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin-top: 1rem;
+    }
+
+    &__radio {
+        height: 1rem;
+        width: 1rem;
+        margin-right: 0.5rem;
+
+        @include mixins.tablet {
+            width: 1rem;
+        }
+    }
+
+    &__radio-label {
+        display: flex;
+        align-items: center;
+        font-size: 0.8rem;
+        width: 50%;
+
+    }
+
+    &__input {
+        border-radius: 10px;
+        border: 1px solid grey;
+        height: 2rem;
+        margin-top: 0.25rem;
+        padding-left: 1rem;
+
+        &::placeholder {
+            position: relative;
+        }
+
+        &--description {
+            padding: 1rem 0 4rem 1rem;
+        }
+
+        &--warehouse {
+            @include mixins.tablet {
+                margin-top: 0.25rem;
+            }
+        }
+    }
+
+    &__label {
+        margin-top: 1rem;
+
+        &--warehouse {
+            @include mixins.tablet {
+                margin-top: 4.25rem;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__add-button {
+        display: flex;
+        justify-content: center;
+        border-radius: 10px;
+        border: none;
+        width: 50%;
+        height: 2rem;
+        background-color: variables.$interactive-elements-color;
+        color: white;
+        justify-content: center;
+
+
+
+        padding: 8px 16px;
+
+
+
+        width: 98px;
+        height: 38px;
+
+        /* Instock-Indigo */
+        background: #2E66E6;
+        border-radius: 20px;
+
+        @include mixins.tablet {
+            width: 8rem;
+        }
+    }
+
+    &__cancel-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px 16px;
+        justify-content: center;
+        width: 72px;
+        height: 38px;
+        color: #5C667E;
+        /* White */
+        background: #FFFFFF;
+        /* Cloud */
+        border: 1px solid #BDC5D5;
+        border-radius: 20px;
+
+
+        &:hover {
+            text-decoration: underline;
+            color: #2E66E6 ;
+            background-color: white;
+            border: 1px solid #2E66E6;
+
+        }
+
+        @include mixins.tablet {
+            width: 4rem;
+        }
+    }
+
+    &__error {
+        text-align: center;
+        color: red;
+
+        &--hidden {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+@use '../../styles/variables' as *;
+
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content
+    }
+};
+
+@mixin desktop {
+    @media (min-width: 1280px) {
+        @content
+    }
+}
+
+.warehouse__sort{
+    gap: 9%;
+    
+    display: none;
+    @include tablet{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-left: 2rem;
+        align-items: center;
+        color: $table-column-header-color;
+        text-transform: uppercase;
+        // background: rgba(247, 248, 249, 0.7);
+        height: 2.5rem;
+    }
+
+    @include desktop{
+        gap: 15%
+    }
+    
+    &--container{
+        background: rgba(247, 248, 249, 0.7);
+        margin: 0 1rem;
+    }
+    
+    &--column{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 0.9rem;
+    }
+}

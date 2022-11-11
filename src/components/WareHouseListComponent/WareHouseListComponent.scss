@@ -1,0 +1,170 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+
+
+@mixin desktop {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@import "../../styles/variables";
+@import "../../styles/typography";
+
+
+
+.warehouse {
+    position: absolute;
+    top: 8rem;
+    width: 100%;
+
+    @include tablet {
+        top: 5rem;
+    }
+
+    &__bottom{
+        margin:0  1rem;
+        background-color: white;
+
+        @include desktop{
+            margin: 0 6rem;
+        }
+    }
+
+}
+
+.warehouse__top {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 0 1rem;
+    border-bottom: 2px $outline-divider-border-color solid;
+    // position: absolute;
+    // top: 8rem;
+    // width: 96%;
+
+    @include tablet {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        // width: 96%;
+    }
+
+    @include desktop {
+        margin: 0 6rem;
+    }
+
+    &--header {
+        // put font-family and fontsize etc
+        padding-left: 2rem;
+    }
+
+    &--search {
+        margin: 1rem 2rem;
+        display: flex;
+        flex-direction: row;
+        resize: none;
+        width: 90%;
+        height: 36px;
+        line-height: 30px;
+        /* White */
+        background: #FFFFFF;
+        /* Cloud */
+        border: 1px solid $outline-divider-border-color;
+        border-radius: 20px;
+
+        @include desktop {
+            width: 40%
+        }
+
+        &::placeholder {
+            /* M P2 */
+            font-family: $titilliumbeb-regular;
+            display: block;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 30px;
+            padding-left: 1rem;
+            /* identical to box height, or 154% */
+            /* Slate */
+            color: $table-column-header-color;
+        }
+
+    }
+
+    &--button {
+        color: white;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: none;
+        align-items: center;
+        padding: 8px 84px;
+        height: 36px;
+        margin: 0 2rem 2rem 2rem;
+        justify-content: center;
+        // This needs font family
+
+        /* Instock-Indigo */
+        background: $interactive-elements-color;
+        border-radius: 20px;
+
+        &:hover{
+            background: #232940;
+            text-decoration: underline;
+        }
+
+        @include tablet {
+            align-content: center;
+            justify-content: center;
+            margin: 0;
+            justify-content: flex-end;
+            height: 2rem;
+            width: 15em;
+            padding: 0 1rem;
+        }
+
+        &--text {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 2rem;
+            text-decoration: none;
+            color: white;
+            width: 20rem;
+            justify-content: center;
+
+            @include tablet {
+                justify-content: center;
+            }
+        }
+    }
+}
+
+.postion__right {
+
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-right: 2rem;
+    }
+
+}
+
+
+
+.removeunderline {
+    text-decoration: none;
+}

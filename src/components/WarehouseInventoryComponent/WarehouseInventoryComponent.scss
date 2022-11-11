@@ -1,0 +1,115 @@
+@import "../../styles/variables";
+@import "../../styles/typography";
+
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+
+
+@mixin desktop {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+.warehouseinventory {
+    margin: 0 1rem;
+    background-color: #ffffff;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+
+    &__img {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__top {
+        margin: 0 2rem;
+        padding: 1rem 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: #BDC5D5 solid 1px;
+
+        &--left {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-family: $titilliumbeb-bold;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 28px;
+            line-height: 36px;
+            /* identical to box height, or 129% */
+            display: flex;
+            align-items: center;
+
+            /* Instock-Black */
+            color: #13182C;
+
+            @include tablet {
+                font-size: 32px;
+                line-height: 40px;
+            }
+
+            @include desktop {}
+        }
+
+        &--right {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            height: 2.25rem;
+            width: 2.25rem;
+            font-family: $titilliumbeb-regular;
+            text-decoration: none;
+            /* identical to box height, or 157% */
+            background-color: #2E66E5;
+            
+            border-radius: 36px;
+            // width: 50%;
+
+            &:hover{
+                background: #232940;
+                text-decoration: underline;
+            }
+            
+            // padding: 0.5rem 1rem;
+
+            /* White */
+            color: #FFFFFF;
+
+            @include tablet {
+                width: 5rem;
+                height: 1.75rem;
+                padding: 1rem 2rem;
+                /* Instock-Indigo */
+                // background: #2E66E6;
+                background-color: #2E66E5;
+                border-radius: 20px;
+            }
+
+            &--button {
+                display: none;
+
+                @include tablet {
+                    display: flex;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 22px;
+                }
+            }
+        }
+    }
+
+}
+.removeTextdecoration{
+    text-decoration: none;
+}

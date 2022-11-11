@@ -1,0 +1,233 @@
+@use '../../styles/mixins';
+@import "../../styles/variables";
+@import "../../styles/typography";
+
+.edit-warehouse {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 5px;
+    position: absolute;
+    top: 8rem;
+    width: 100%;
+
+    @include mixins.tablet {
+        top: 5rem;
+    }
+
+    &__title-wrapper {
+        display: flex;
+        padding: 1rem 1rem 0 1rem;
+        border: 1px solid black;
+        border-bottom: none;
+        background-color: white;
+        height: 6rem;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        align-items: center;
+        gap: 1rem;
+
+        @include mixins.desktop {
+            margin: 0 4rem;
+        }
+    }
+
+    &__title {
+        font-size: 1.6rem;
+
+        @include mixins.tablet {
+            font-size: 2rem;
+        }
+    }
+
+    &__copyright {
+        text-align: center;
+
+        @include mixins.tablet {
+            margin-top: 15vh;
+        }
+    }
+
+    &__back-arrow {
+        cursor: pointer;
+        @include mixins.tablet {
+            height: 2rem;
+            width: 2rem;
+        }
+    }
+}
+
+.edit-warehouse-form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+
+
+    @include mixins.desktop {
+        margin: 0 4rem;
+    }
+
+    &__article-wrapper {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        border-bottom: none;
+
+        @include mixins.tablet {
+            flex-direction: row;
+        }
+    }
+
+    &__input-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        @include mixins.tablet {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    &__button-wrapper {
+        display: flex;
+        background-color: lightgray;
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid black;
+        border-top: none;
+        gap: 1rem;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+
+
+        @include mixins.tablet {
+            justify-content: flex-end;
+        }
+    }
+
+    &__warehouse-details {
+        border-bottom: 1px solid black;
+        padding: 0 1rem 1rem 1rem;
+
+        @include mixins.tablet {
+            border: none;
+            width: 50%;
+            padding: 0 1rem;
+            margin: 1rem 0;
+            border-right: 1px solid gray;
+        }
+    }
+
+    &__contact-details {
+        padding: 0 1rem 1rem 1rem;
+
+        @include mixins.tablet {
+            width: 50%;
+            padding: 0 1rem;
+            margin: 1rem 0;
+        }
+    }
+
+    &__input {
+        border-radius: 10px;
+        border: 1px solid grey;
+        height: 2rem;
+        margin-top: 0.25rem;
+
+        &::placeholder {
+            position: relative;
+            left: 0.5rem;
+        }
+
+        &--error {
+            border: 1px solid red;
+        }
+    }
+
+    &__label {
+        margin-top: 1rem;
+    }
+
+    &__edit-button {
+        font-family: $titilliumbeb-regular;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 16px;
+        border: none;
+        width: 50%;
+        height: 2rem;
+        color: white;
+        /* Instock-Indigo */
+        background: #2E66E6;
+        border-radius: 20px;
+
+        &:hover{
+            background: #232940;
+            text-decoration: underline;
+        }
+
+
+        @include mixins.tablet {
+            width: 8rem;
+        }
+    }
+
+    &__cancel-button {
+        width: 50%;
+        height: 2rem;
+        font-family: $titilliumbeb-regular;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 8px 16px;
+        /* White */
+        background: #FFFFFF;
+        /* Cloud */
+        border: 1px solid #BDC5D5;
+        border-radius: 20px;
+        font-size: 14px;
+        line-height: 22px;
+        /* identical to box height, or 157% */
+
+        /* Slate */
+        color: #5C667E;
+
+        &:hover {
+            color: #2E66E5;
+            background-color: white;
+            border: solid #2E66E5 1px ;
+        }
+
+        @include mixins.tablet {
+            width: 4rem;
+        }
+    }
+
+    &__error-label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        color: red;
+
+        &--img {
+            height: 1rem;
+            width: 1rem;
+        }
+    }
+
+    &__error-hidden {
+        display: none;
+    }
+
+    .submitError {
+        border-left: 1px solid black ;
+        border-right:1px solid black ;
+        font-weight: bold;
+        color: red;
+        text-align: center;
+    }
+}

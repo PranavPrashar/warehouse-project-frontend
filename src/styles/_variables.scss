@@ -1,0 +1,28 @@
+/*
+Mobile: 320px-767px
+Tablet: 768px-1279px
+Desktop: 1280px-1920px
+*/
+
+// Breakpoints
+$mobile-min: 320px;
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1280px;
+$desktop-max: 1920px;
+
+//Instock Primary Colors
+$global-text-color: #13182C; //Instock-Black-Black
+$interactive-elements-color: #2E66E5; //Instock-indigo
+$global-white-color: #FFFFFF; // White
+
+//Instock Secondary Colors
+$table-column-header-color: #5C667E; // Slate also placeholder text
+$outline-divider-border-color: #BDC5D5; // Cloud also table sorting icon
+
+//Instock Background Colors
+$top-nav-backgr-cta-hover-color: #232940; //Graphite
+$page-backgr-cta-backgr-color: #F7F8F9; //Light-Grey also table column background
+
+//Instock Supporting Colors
+$in-stock-label-color: #158463; // Green
+$out-of-stock-label-color: #C94515; // Red also error states & delete icon

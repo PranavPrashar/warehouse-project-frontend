@@ -1,0 +1,36 @@
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content
+    }
+};
+
+@mixin desktop {
+    @media (min-width: 1280px) {
+        @content
+    }
+}
+
+.warehouse__sort{
+    
+    display: none;
+    @include tablet{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 3rem;
+        align-items: center;
+        // background: rgba(247, 248, 249, 0.7);
+        height: 2.5rem;
+    }
+
+    &--container{
+        background: rgba(247, 248, 249, 0.7);
+        margin: 0 1rem;
+    }
+
+    &--column{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}

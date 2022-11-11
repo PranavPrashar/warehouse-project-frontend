@@ -1,0 +1,90 @@
+//Need to add fonts. Possibly global fonts in app.scss? Added!
+@use '../../styles/variables' as *;
+@use '../../styles/_mixins.scss';
+
+
+.page-header {
+    display: flex;
+    flex-direction: column;
+    background-color: $top-nav-backgr-cta-hover-color; //Change using variables later. 
+    align-items: center;
+    justify-content: flex-start;
+    height: 12.05rem;
+    width: 100%;
+
+    @include mixins.tablet {
+        flex-direction: row;
+        align-items: flex-start;
+        padding-top: 1rem;
+    }
+
+    @include mixins.desktop {
+        padding: 1rem 5rem;
+    }
+
+    &__link{
+text-decoration: none;
+&:hover{
+    text-decoration: underline;
+    color: white ;
+}
+    }
+
+
+
+    &__logo {
+        width: 10rem;
+        margin: 1rem;
+    }
+
+    &__navbar {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+
+        @include mixins.tablet {
+            align-items: center;
+            width: 35%;
+            margin-left: auto;
+        }
+    }
+   
+
+    // &__button {
+    //     border-radius: 20px;
+    //     height: 2.25rem;
+    //     background-color: grey; //change using variables later.
+    //     color: white;
+    //     border: 0px;
+    //     margin: 0 1rem;
+
+    //     @include mixins.tablet {
+    //         margin: 1rem;
+    //     }
+
+
+    //     &:hover {
+    //         background-color: $global-text-color; //Change using variables later.
+    //         text-decoration: underline;
+    //     }
+    // }
+}
+
+.page-header__button{
+    text-decoration: none;
+}
+
+.removeTextDecoration{
+    text-decoration: none;
+}
+
+button {
+    color: $global-white-color;
+    background-color: inherit;
+    width: 130px;
+    border-color: $top-nav-backgr-cta-hover-color;
+    text-decoration: none;
+    &:hover {
+        background-color: $global-text-color;
+    }
+}

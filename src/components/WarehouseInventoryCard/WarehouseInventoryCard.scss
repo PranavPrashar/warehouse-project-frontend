@@ -1,0 +1,261 @@
+@use '../../styles/mixins';
+@import "../../styles/variables";
+@import "../../styles/typography";
+
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+// position: absolute;
+//     top: 8rem;
+
+@mixin desktop {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+.warehouseinventorycard__container {
+    position: absolute;
+    top: 8rem;
+    width: 100%;
+
+    @include mixins.tablet {
+        top: 5rem;
+    }
+}
+
+.warehouseinventorycard {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 0 3rem;
+    margin: 0 1rem;
+    border-bottom: 1px #BDC5D5 solid;
+
+    @include tablet {
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &--header {
+        font-family: $titilliumbeb-bold;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 11px;
+        line-height: 16px;
+        /* identical to box height, or 145% */
+        text-transform: uppercase;
+
+        /* Slate */
+        color: #5C667E;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &--address {
+        /* M P2 */
+        font-family: $titilliumbeb-regular;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 20px;
+        /* identical to box height, or 154% */
+
+        /* Instock-Black */
+        color: #13182C;
+    }
+
+    &__top {
+        // flex-direction: row;
+        width: 100%;
+        padding: 1rem 0 2rem 0;
+
+        @include tablet {
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            // justify-content: flex-start;
+            // padding-right:5rem;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding-bottom: 1rem;
+
+        @include tablet {
+            width: 50%;
+            border-left: 2px solid #BDC5D5;
+            padding-left: 2rem;
+        }
+
+        &--left {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+
+        &--right {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__item {
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 1rem 3rem 0 3rem;
+        margin: 0 1rem;
+        border-bottom: 1px #BDC5D5 solid;
+        justify-content: space-between;
+        align-items: center;
+
+        // &--leftcontainer{
+
+        //     width: 50%;
+        // }
+
+        &--left {
+            width: 50%;
+
+            @include tablet {
+                display: flex;
+            }
+
+            &--container {
+
+                width: 50%;
+            }
+
+            &--category {
+                width: 50%;
+            }
+
+
+
+
+            &--link {
+                display: flex;
+                align-content: center;
+                flex-direction: row;
+                align-items: center;
+                font-family: $titilliumbeb-bold;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 13px;
+                line-height: 20px;
+                /* identical to box height, or 154% */
+                /* Instock-Indigo */
+                color: #2E66E6;
+                text-decoration: none;
+            }
+        }
+
+        &--right {
+            width: 50%;
+
+            @include tablet {
+                display: flex;
+                flex-direction: row;
+            }
+
+            &--status {
+                width: 50%;
+            }
+
+            &--qty {
+                width: 40%;
+            }
+
+            &--instock {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                font-family: $titilliumbeb-bold;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 11px;
+                line-height: 16px;
+                /* identical to box height, or 145% */
+                text-transform: uppercase;
+
+                /* Green */
+                width: 61px;
+                height: 24px;
+                color: #158463;
+                background: rgba(21, 132, 99, 0.07);
+                border-radius: 20px;
+            }
+
+            &--outstock {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                font-family: $titilliumbeb-bold;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 11px;
+                line-height: 16px;
+                /* identical to box height, or 145% */
+                text-transform: uppercase;
+
+                /* Green */
+                width: 86px;
+                height: 24px;
+                color: #C94515;
+                background: rgba(201, 69, 21, 0.07);
+                border-radius: 20px;
+            }
+        }
+
+        &--button {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            flex-wrap: wrap;
+            margin: 0 0 1rem 0;
+
+            @include tablet {
+                justify-content: flex-end;
+            }
+
+            &--img {
+                display: flex;
+                flex-direction: row;
+                @include tablet {
+                    flex-direction: column;
+                    width: 1.2rem;
+                    height: 1.2rem;
+                    align-items: center;
+                }
+            }
+
+        }
+        
+    }
+
+    &__img {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.chevron__icon {
+    height: 20px;
+}

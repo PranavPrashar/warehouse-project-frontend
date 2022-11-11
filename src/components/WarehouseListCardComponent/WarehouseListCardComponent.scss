@@ -1,0 +1,303 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+
+
+@mixin desktop {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@import "../../styles/variables";
+@import "../../styles/typography";
+
+.cardcomponent {
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+
+    border-top: solid $outline-divider-border-color 2px;
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        // flex-wrap: wrap;
+        // margin: 1rem;
+        width: 100%;
+
+        @include tablet {
+            justify-content: flex-start;
+            width: 80%;
+            margin: 0 2rem;
+        }
+    }
+
+    &__sort {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            padding-left: 1rem;
+        }
+    }
+
+    &__left {
+        // background-color: lightcoral;
+        // width: 42vw;
+        width: 50%;
+        margin: 1rem 1rem;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 50%;
+            margin: 0;
+        }
+
+        &--warehouse {
+            width: 50%;
+            &--header {
+                width: 6rem;
+                font-family: $titilliumbeb-bold;
+                // Import the typeographys and make mixin for this
+                font-style: normal;
+                font-weight: 600;
+                font-size: 11px;
+                line-height: 16px;
+                /* identical to box height, or 145% */
+                text-transform: uppercase;
+
+                /* Slate */
+                color: $table-column-header-color;
+
+                @include tablet {
+                    display: none;
+                }
+            }
+
+            &--city__chevron {
+                /* M H3 */
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                font-family: $titilliumbeb-bold;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 13px;
+                line-height: 20px;
+                /* identical to box height, or 154% */
+                /* Instock-Indigo */
+                color: $interactive-elements-color;
+                text-decoration: none;
+
+                &:hover{
+                    text-decoration: underline;
+                }
+                @include tablet {
+                    padding-right: 8vw;
+                }
+
+                @include desktop {
+                    padding-right: 15vw;
+                }
+            }
+        }
+
+        &--address {
+           @include tablet{
+            width: 50%;
+            // padding-left: 1rem;
+           }
+
+           @include desktop{
+            padding-left: 4rem;
+           }
+            &--header {
+               
+                font-family: $titilliumbeb-bold;;
+                // Import the typeographys and make mixin for this
+                font-style: normal;
+                font-weight: 600;
+                font-size: 11px;
+                line-height: 16px;
+                /* identical to box height, or 145% */
+                text-transform: uppercase;
+
+                /* Slate */
+                color: $table-column-header-color;
+
+                @include tablet {
+                    display: none;
+                }
+            }
+
+            &--city {
+                /* M H3 */
+                font-family: $titilliumbeb-regular;;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 13px;
+                line-height: 20px;
+                color: $global-text-color;
+            }
+        }
+
+    }
+
+    &__right {
+        width: 40%;
+        margin: 1rem 1rem;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 50%;
+            // background-color: lightgray;
+            margin: 0;
+
+        }
+
+        @include desktop{
+            padding-left: 5rem;
+        }
+
+        &--contact {
+            @include tablet{
+                width: 100%;
+            }
+            &--header {
+                /* M H4 */
+                font-family: $titilliumbeb-bold;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 11px;
+                line-height: 16px;
+                /* identical to box height, or 145% */
+                text-transform: uppercase;
+
+                /* Slate */
+                color: $table-column-header-color;
+
+                @include tablet {
+                    display: none;
+                }
+            }
+
+            &--name {
+                
+                /* M P2 */
+                font-family: $titilliumbeb-regular;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 13px;
+                line-height: 20px;
+                /* identical to box height, or 154% */
+
+                /* Instock-Black */
+                color: $global-text-color;
+                // padding-left: 2rem;
+
+                @include tablet {
+                    padding-left: 0.5rem;
+                }
+
+                @include desktop {
+                    padding-left: 2rem;
+                }
+            }
+        }
+
+        &--contactinfo {
+            width:60%;
+            text-align: left;
+            &--header {
+                /* M H4 */
+                font-family: $titilliumbeb-bold;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 11px;
+                line-height: 16px;
+                /* identical to box height, or 145% */
+                text-transform: uppercase;
+
+                /* Slate */
+                color: $table-column-header-color;
+
+                @include tablet {
+                    display: none;
+                }
+            }
+
+            &--name {
+                /* M P2 */
+                // background-color: blue;
+                font-family: $titilliumbeb-regular;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 13px;
+                line-height: 20px;
+                /* identical to box height, or 154% */
+                /* Instock-Black */
+                color: $global-text-color;
+
+                @include tablet {
+                    padding-left: 3rem;
+                    width: 100%;
+                }
+
+                @include desktop {
+                    // padding-right: 8vw;
+                    // padding-left: 18vw;
+                }
+            }
+        }
+    }
+
+    &__lower {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0 1rem 1rem 1rem;
+
+        @include tablet {
+            justify-content: flex-start;
+            width: 10%;
+            align-items: center;
+            margin: 0 0 1rem 0;
+            justify-content: flex-end;
+        }
+
+        &--img {
+            display: flex;
+            flex-direction: row;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            @include tablet {
+                flex-direction: column;
+                width: 1.2rem;
+                height: 1.2rem;
+                align-items: center;
+            }
+        }
+    }
+}

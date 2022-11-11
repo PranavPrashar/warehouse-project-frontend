@@ -1,0 +1,15 @@
+@use '../../styles/variables';
+
+.footer {
+    display: flex;
+    justify-content: center;    
+    background-color: #D1D1D1;
+    padding-top: 100vh;
+    text-align: center;
+    width: 100%;
+
+    &__text {
+        text-align: center;
+        justify-self: center;
+    }
+}

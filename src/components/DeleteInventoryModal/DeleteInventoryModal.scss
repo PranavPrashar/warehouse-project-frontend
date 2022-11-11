@@ -1,0 +1,113 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.delete__inventory__modal {
+    &--background {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        
+        background-color: $global-white-color;
+        
+        @include tablet {
+            background: rgba(19, 24, 44, 0.01);
+            // background-color: transparent;
+            // backdrop-filter: blur(0.5px);
+        }
+    }
+
+    &--container {
+        width: 100vw;
+        height: 100vh;
+        background-color: $global-white-color;
+        display: flex;
+        flex-direction: column;
+        padding: 25px;
+
+        @include tablet {
+            width: 42rem;
+            height: 16.375rem;
+            border-radius: 3px;
+            background-color: $global-white-color;
+            box-shadow: none;
+            border-radius: 3px;
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+        }
+
+        &--cancel {
+            display: flex;
+            justify-content: flex-end;
+
+            & img {
+                background-color: transparent;
+                border: none;
+                font-size: 25px;
+                cursor: pointer;
+            }
+        }
+
+        &--title {
+            display: inline-block;
+            margin-top: 1rem;
+            text-align: flex-start;
+        }
+
+        &--body {
+            flex: 50%;
+            display: flex;
+            margin-top: 1rem;
+            text-align: flex-start;
+        }
+
+        &--footer {
+            flex: 20%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            @include tablet {
+                justify-content: flex-end;
+            }
+
+            & button {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 8px 63px;
+                justify-content: center;
+                gap: 10px;
+
+                width: 163px;
+                height: 36px;
+                margin: 10px;
+                font-size: 20px;
+                border-radius: 20px;
+                cursor: pointer;
+
+                @include tablet {
+                    padding: 0.5rem 2rem;
+                    width: 72px;
+                    height: 38px;
+                }
+            }
+            
+            &--cancel {
+                border: 1px solid #BDC5D5;
+                color: $outline-divider-border-color;
+                background-color: $global-white-color;
+            }
+            
+            &--delete {
+                border: none;
+                background-color: $out-of-stock-label-color;
+            }
+        }
+    }
+}

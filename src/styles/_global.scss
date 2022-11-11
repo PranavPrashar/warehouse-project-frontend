@@ -1,0 +1,125 @@
+@use './mixins' as *;
+@use './typography' as *;
+@use './variables' as *;
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+// Removing whitespace
+body {
+    margin: 0 auto;
+    font-family: $titilliumbeb-bold;
+    color: $global-text-color;
+    background-color: $page-backgr-cta-backgr-color;
+}
+
+// Page Header
+h1 {
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 600;
+    @include tablet {
+        font-size: 32px;
+        line-height: 40px;
+        font-weight: 600;
+    }
+}
+
+// Subheader
+h2 {
+
+    font-size: 20x;
+    line-height: 28px;
+    font-weight: 600;
+    @include tablet {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 600;
+    }
+}
+
+// Labels, Links & Buttons
+h3 {
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 600;
+    @include tablet {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 600;
+    }
+}
+
+// Table Header
+h4 {
+    // color: $secondary-text-color;
+    text-transform: uppercase;
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: 600;
+    @include tablet {
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 600;
+    }
+}
+
+// Body Copy Large
+.p1 {
+    font-size: 15px;
+    line-height: 26px;
+    font-weight: 400;
+    @include tablet {
+        font-size: 16px;
+        line-height: 28px;
+        font-weight: 400;
+    }
+}
+
+// Body Copy Medium
+.p2, p {
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 400;
+    @include tablet {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 400;
+    }
+}
+
+// Body Copy Small
+.p3 {
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: 400;
+    @include tablet {
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 400;
+    }
+}
+
+// All primary cta buttons
+button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $interactive-elements-color;
+    font-family: $titilliumbeb-bold;
+    // font-size: 12px;
+    line-height: 36px;
+    font-weight: 600;
+    padding: 0.063rem 0.234rem;
+    border-radius: 1.25rem; //20px on all sides
+    width: 100%;
+    border-style: double;
+    cursor: pointer;
+    @include tablet {
+        height: 38px;
+        min-width: 8rem;
+        padding: 0 1rem;
+        margin: 0;
+    }
+}
