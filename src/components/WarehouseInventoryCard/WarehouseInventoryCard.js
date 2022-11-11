@@ -16,7 +16,7 @@ function WarehouseInventoryCard() {
   const [warehouseInventory, setwarehouseInventory] = useState([]);
   const history = useHistory();
   const params = useParams();
-  console.log(params.warehouseId)
+  console.log(params.warehouseId);
 
   const handlePencilClick = (inventoryItemId) => {
     history.push(`/edit/inventory/${inventoryItemId}`);
@@ -24,9 +24,7 @@ function WarehouseInventoryCard() {
 
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:6060/warehouse/search/${params.warehouseId}`
-      )
+      .get(`http://localhost:6060/warehouse/search/${params.warehouseId}`)
       .then((response) => {
         // console.log("Warehouse Data", response.data);
         // this.setState({ currentWarehouse: response.data });
@@ -36,9 +34,7 @@ function WarehouseInventoryCard() {
         console.log(error);
       });
     axios
-      .get(
-        `http://localhost:6060/warehouse/${params.warehouseId}`
-      )
+      .get(`http://localhost:6060/warehouse/${params.warehouseId}`)
       .then((response) => {
         // console.log(response.data);
         // this.setState({ warehouseInventory: response.data });
