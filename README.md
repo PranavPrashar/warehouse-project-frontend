@@ -1,16 +1,9 @@
 
-# InStock BrainStation 2022
-
-
-
-
+# InStock
 
 ## Contributors 
-
 Pranav Prashar,
-Jakob Luter,
-Jamiu Abdsalami,
-Abdullah Itangishaka,
+
 
 
 
