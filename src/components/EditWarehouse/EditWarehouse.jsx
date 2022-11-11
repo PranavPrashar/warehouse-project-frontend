@@ -64,6 +64,14 @@ function EditWarehouse() {
     setcontact_position(event.target.value);
   };
 
+  const handleContactPhone = (event) => {
+    setcontact_position(event.target.value);
+  };
+
+  const handleContactEmail = (event) => {
+    setcontact_position(event.target.value);
+  };
+
   // submit
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -333,7 +341,7 @@ function EditWarehouse() {
                     name="contact_phone"
                     className={`edit-warehouse-form__input ${inputClass}`}
                     type="tel"
-                    onChange={handleChange}
+                    onChange={handleContactPhone}
                     value={contact_phone}
                   ></input>
                   <label
@@ -356,7 +364,7 @@ function EditWarehouse() {
                     name="contact_email"
                     className={`edit-warehouse-form__input ${inputClass}`}
                     type="email"
-                    onChange={handleChange}
+                    onChange={handleContactEmail}
                     value={contact_email}
                   ></input>
                   <label
