@@ -11,6 +11,10 @@
     @include tablet {
         flex-direction: row;
     }
+
+    &--textdecoration{
+        text-decoration: none;
+    }
     
     &__inventory {
         display: flex;
