@@ -29,6 +29,21 @@ function EditInventoryItem() {
     setDescription(event.target.value);
   };
 
+  const handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleStatusChange = (event) =>{
+    setStatus(event.target.value);
+  }
+
+  const handleQuantityChange = (event) =>{
+    setQuantity(event.target.value)
+
+  }
+
   const inventoryItemToEditDetails = () => {
     const inventoryItemToEditId = params.inventoryId;
     axios
@@ -79,7 +94,7 @@ function EditInventoryItem() {
       event.target[5].value &&
       event.target[6].value
     ) {
-      const inventoryItemToEditId = this.props.match.params.inventoryId;
+      const inventoryItemToEditId = params.inventoryId;
       axios
         .put(`http://localhost:6060/inventory/edit/${inventoryItemToEditId}`, {
           warehouseId: selectedWarehouseId,
@@ -177,7 +192,7 @@ function EditInventoryItem() {
                     name="description"
                     className="edit-inventory-form__input edit-inventory-form__input--description"
                     type="text"
-                    onChange={this.handleChange}
+                    onChange={handleDescriptionChange}
                     value={description}
                   ></input>
                   <label className="edit-inventory-form__label" id="category">
@@ -190,10 +205,10 @@ function EditInventoryItem() {
                     type="text"
                   >
                     <option value="">Please Select</option>
-                    {!this.state.inventory ? (
+                    {!inventory ? (
                       <option value="Loading...">Loading..</option>
                     ) : (
-                      this.state.inventory.map((item) => {
+                      inventory.map((item) => {
                         return (
                           <option key={item.id} value={`${item.itemName}`}>
                             {item.itemName}
@@ -224,7 +239,7 @@ function EditInventoryItem() {
                         className="edit-inventory-form__radio"
                         type="radio"
                         value="in stock"
-                        onChange={this.handleChange}
+                        onChange={handleStatusChange}
                       ></input>
                       In Stock
                     </label>
@@ -251,8 +266,8 @@ function EditInventoryItem() {
                     name="quantity"
                     className="edit-inventory-form__input"
                     type="tel"
-                    onChange={this.handleChange}
-                    value={this.state.quantity}
+                    onChange={handleQuantityChange}
+                    value={quantity}
                   ></input>
                   <label
                     className="edit-inventory-form__label edit-inventory-form__label--warehouse"
@@ -267,10 +282,10 @@ function EditInventoryItem() {
                     className="edit-inventory-form__input edit-inventory-form__input--warehouse"
                   >
                     <option value="">Please Select</option>
-                    {!this.state.warehouses ? (
+                    {!warehouses ? (
                       <option value="Loading...">Loading..</option>
                     ) : (
-                      this.state.warehouses.map((warehouse) => {
+                      warehouses.map((warehouse) => {
                         return (
                           <option
                             key={warehouse.id}
@@ -285,22 +300,18 @@ function EditInventoryItem() {
                 </div>
               </article>
             </section>
-            {this.state.isError && (
-              <p className="isError">Please fill out the fields</p>
-            )}
+            {isError && <p className="isError">Please fill out the fields</p>}
             <section className="edit-inventory-form__button-wrapper">
               <button
                 className="edit-inventory-form__cancel-button"
-                onClick={this.handleBackClick}
+                onClick={handleBackClick}
               >
                 Cancel
               </button>
               <button className="edit-inventory-form__edit-button">Save</button>
             </section>
           </form>
-          <h2 className={`${this.state.errorClass}`}>
-            Please Fill Out All Form Fields
-          </h2>
+          <h2 className={`${errorClass}`}>Please Fill Out All Form Fields</h2>
         </>
       ) : (
         <p>byanze</p>
