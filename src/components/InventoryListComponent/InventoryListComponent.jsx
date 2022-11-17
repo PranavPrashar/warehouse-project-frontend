@@ -5,12 +5,13 @@ import InventoryListCardComponent from "../InventoryListCardComponent/InventoryL
 import searchIcon from "../../assets/icons/search-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function InventoryListComponent() {
   const [inventories, setinventories] = useState([]);
   const [selectedInventory, setSelectedInventory] = useState([]);
-  const history = useHistory();
+  // const history = useHistory();
+  const navigate = useNavigate();
 
   const setselectedInventory = (inventoryId) => {
     const selectedInventory = this.state.inventories.find(
@@ -21,7 +22,8 @@ function InventoryListComponent() {
 
   const handleAddNewItemClick = (event) => {
     event.preventDefault();
-    history.push("/addInventory");
+    // history.push("/addInventory");
+    navigate("/addInventory");
   };
 
   useEffect(() => {
@@ -34,7 +36,7 @@ function InventoryListComponent() {
       .catch((error) => {
         console.log(error);
       });
-  });
+  },[]);
   return (
     <main className="inventory__page">
       <section className="inventory__page__header">

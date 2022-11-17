@@ -5,7 +5,7 @@ import error from "../../assets/icons/error-24px.svg";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 
 import { useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 function EditWarehouse() {
@@ -25,14 +25,16 @@ function EditWarehouse() {
   );
 
   const params = useParams();
-  const history = useHistory();
+  // const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     warehouseToEditDetails();
   });
   const handleBackClick = (event) => {
     event.preventDefault();
-    history.goBack();
+    // history.goBack();
+    navigate(-1);
   };
   const handleChange = (event) => {
     this.setState({
@@ -108,7 +110,9 @@ function EditWarehouse() {
         )
         .then((response) => {
           // console.log(response);
-          history.push("/");
+          // history.push("/");
+
+          navigate("/");
         })
         .catch((error) => {
           // this.setState({ submitError: true });

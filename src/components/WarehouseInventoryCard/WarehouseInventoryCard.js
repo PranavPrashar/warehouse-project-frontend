@@ -6,7 +6,7 @@ import garbageLogo from "../../assets/icons/delete_outline-24px.svg";
 import pencilLogo from "../../assets/icons/edit-24px.svg";
 
 import axios from "axios";
-import { NavLink, useHistory, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import WarehouseInventoryComponent from "../WarehouseInventoryComponent/WarehouseInventoryComponent";
 import InventorySortComponent from "../InventorySortComponent/InventorySortComponent";
 import { useState, useEffect } from "react";
@@ -14,14 +14,15 @@ import { useState, useEffect } from "react";
 function WarehouseInventoryCard() {
   const [currentWareHouse, setCurrentWareHouse] = useState([]);
   const [warehouseInventory, setwarehouseInventory] = useState([]);
-  const history = useHistory();
+  // const history = useHistory();
+  const navigate = useNavigate();
   const params = useParams();
   // console.log(params.warehouseId);
 
   const handlePencilClick = (inventoryItemId) => {
-    history.push(`/edit/inventory/${inventoryItemId}`);
+    // history.push(`/edit/inventory/${inventoryItemId}`);
+    navigate(`/edit/inventory/${inventoryItemId}`)
   };
-
   useEffect(() => {
     axios
       .get(`http://localhost:6060/warehouse/search/${params.warehouseId}`)
@@ -43,12 +44,12 @@ function WarehouseInventoryCard() {
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, []);
   return (
     <>
       <div className="warehouseinventorycard__container">
         <WarehouseInventoryComponent
-          history={history}
+          history={navigate}
           warehouseInfo={currentWareHouse}
         />
         <div className="warehouseinventorycard">

@@ -1,18 +1,20 @@
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React from "react";
 import closeIcon from "../../assets/icons/close-24px.svg";
 import "./DeleteInventoryModal.scss";
 
 const DeleteInventoryModal = ({closeModal, selectedInventory}) => {
 
-    let history = useHistory();
+    // let history = useHistory();
+    let navigate = useNavigate();
 
     const handleDeleteConfirmation = () => {
        axios.delete(`http://localhost:6060/inventory/delete/${selectedInventory.id}`)
         .then( response => {
             // console.log(response.data)
-            history.push("/")
+            // history.push("/")
+            navigate("/")
         })
         .catch( error => {
             console.log(error)

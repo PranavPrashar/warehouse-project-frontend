@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import "./InventoryItemDetails.scss";
 import pencilLogo from "../../assets/icons/edit-24px-white.svg";
 import arrowbackIcon from "../../assets/icons/arrow_back-24px.svg";
@@ -10,11 +10,13 @@ import axios from "axios";
 export default function InventoryItemDetails() {
   const [currentProduct, setcurrentProduct] = useState([]);
   const params = useParams();
-  const history = useHistory();
+  // const history = useHistory();
+  const navigate = useNavigate();
 
   const handleBackClick = (event) => {
     event.preventDefault();
-    history.goBack();
+    // history.goBack();
+    navigate(-1);
   };
 
   useEffect(() => {
@@ -28,7 +30,7 @@ export default function InventoryItemDetails() {
       .catch((error) => {
         console.log(error);
       });
-  });
+  },[]);
   return (
     <>
       <div className="inventoryitemdetails">

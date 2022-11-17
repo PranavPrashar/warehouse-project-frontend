@@ -1,13 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import pencilIcon from "../../assets/icons/edit-24px.svg";
 import pencilIcon from "../../assets/icons/edit-24px-white.svg";
 import arrowbackIcon from "../../assets/icons/arrow_back-24px.svg";
 import "./WarehouseInventoryComponent.scss";
 
+
 function WarehouseInventoryComponent(props) {
+  const navigate = useNavigate();
   const handleBackClick = (event) => {
     event.preventDefault();
-    props.history.push("/");
+    // props.history.push("/");
+    navigate("/");
   };
 
   if (Object.keys(props.warehouseInfo).length !== 0) {

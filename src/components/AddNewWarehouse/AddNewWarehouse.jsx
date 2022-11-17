@@ -3,12 +3,84 @@ import "./AddNewWarehouse.scss";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import axios from "axios";
 import error from "../../assets/icons/error-24px.svg";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+
+
+
+// function AddNewWarehouse() {
+//   const [inputClass, setInputClass] = useState(null);
+//   const [errorLabel, setErrorLabel] = useState("add-warehouse-form__error-hidden");
+//   const history = useHistory();
+
+//   const handleCancelClick = (event) => {
+//     event.preventDefault();
+//     history.push("/")
+//   }
+
+//   const handleFormSubmit= (event) =>{
+//     event.preventDefault();
+//     if (
+//       event.target[0].value &&
+//       event.target[1].value &&
+//       event.target[2].value &&
+//       event.target[3].value &&
+//       event.target[4].value &&
+//       event.target[5].value &&
+//       event.target[6].value &&
+//       event.target[7].value
+//     ) {
+//       axios
+//         .post("http://localhost:6060/warehouse", {
+//           name: event.target[0].value,
+//           address: event.target[1].value,
+//           city: event.target[2].value,
+//           country: event.target[3].value,
+//           contact: {
+//             name: event.target[4].value,
+//             position: event.target[5].value,
+//             phone: event.target[6].value,
+//             email: event.target[7].value,
+//           },
+//         })
+//         .then((response) => {
+//           // console.log(response);
+//           history.push("/")
+//         })
+//         .catch((error) => {
+//           console.log(error);
+//         });
+//     } else if (
+//       !event.target[0].value ||
+//       !event.target[1].value ||
+//       !event.target[2].value ||
+//       !event.target[3].value ||
+//       !event.target[4].value ||
+//       !event.target[5].value ||
+//       !event.target[6].value ||
+//       !event.target[7].value
+//     ) {
+//       setErrorLabel(null);
+//       setInputClass("add-warehouse-form__input--error");
+//       // this.setState({
+//       //   inputClass: "add-warehouse-form__input--error",
+//       //   errorLabel: null,
+//       // });
+//     }
+
+//   }
+//   return (
+//     <div>AddNewWarehouse</div>
+//   )
+// }
+
 
 class AddNewWarehouse extends Component {
   state = {
     inputClass: null,
     errorLabel: "add-warehouse-form__error-hidden",
   };
+
 
 
   handleFormSubmit = (event) => {

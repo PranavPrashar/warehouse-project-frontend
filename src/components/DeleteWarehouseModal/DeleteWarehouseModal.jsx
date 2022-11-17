@@ -1,20 +1,23 @@
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import React from "react";
 import closeIcon from "../../assets/icons/close-24px.svg";
 import "./DeleteWarehouseModal.scss";
 
 const DeleteWarehouseModal = ({closeModal, selectedWarehouse}) => {
 
-    let history = useHistory();
+    // let history = useHistory();
+
+    let navigate = useNavigate();
 
     const handleDeleteConfirmation = () => {
 
         axios.delete(`http://localhost:6060/warehouse/delete/${selectedWarehouse.id}`)
             .then( response => {
                 console.log(response.data)
-                
-                history.go(0)
+                // history.go(0)
+                navigate('/');
                 // setTimeout(() => {
                 //     history.push("/")
                 // }, 2000)

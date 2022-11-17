@@ -5,11 +5,12 @@ import axios from "axios";
 
 import { useState } from "react";
 import { useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function EditInventoryItem() {
   const params = useParams();
-  const history = useHistory();
+  // const history = useHistory();
+  const navigate = useNavigate();
   const [warehouses, setWarehouses] = useState([]);
   const [inventory, setInventory] = useState([]);
   const [isError, setIsError] = useState(false);
@@ -61,7 +62,8 @@ function EditInventoryItem() {
   };
   const handleBackClick = (event) => {
     event.preventDefault();
-    history.goBack();
+    // history.goBack();
+    navigate(-1);
   };
 
   const handleFormSubmit = (event) => {
@@ -106,7 +108,8 @@ function EditInventoryItem() {
           quantity: quantity,
         })
         .then((response) => {
-          history.push("/");
+          // history.push("/");
+          navigate("/")
         })
         .catch((error) => {
           console.log(error);
@@ -144,7 +147,7 @@ function EditInventoryItem() {
       .catch((err) => {
         console.log(err);
       });
-  });
+  },[]);
 
   return (
     <main className="edit-inventory">
