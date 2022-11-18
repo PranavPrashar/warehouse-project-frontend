@@ -121,16 +121,16 @@ function EditWarehouse() {
         });
 
       // Form reset
-      this.setState({
-        name: "",
-        address: "",
-        city: "",
-        country: "",
-        contact_name: "",
-        contact_position: "",
-        contact_phone: "",
-        contact_email: "",
-      });
+      // this.setState({
+      //   name: "",
+      //   address: "",
+      //   city: "",
+      //   country: "",
+      //   contact_name: "",
+      //   contact_position: "",
+      //   contact_phone: "",
+      //   contact_email: "",
+      // });
     } else if (
       !name ||
       !address ||
