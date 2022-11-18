@@ -4,14 +4,16 @@ import "./WarehouseListCardComponent.scss";
 import garbageLogo from "../../assets/icons/delete_outline-24px.svg";
 import pencilLogo from "../../assets/icons/edit-24px.svg";
 import rightChevron from "../../assets/icons/chevron_right-24px.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function WarehouseListCardComponent(props) {
-
+  const navigate = useNavigate();
   // console.log("Warehouse", props);
   const handlePencilClick = (warehouseId) => {
-    props.history.push(`/edit/warehouse/${warehouseId}`)
+    // props.history.push(`/edit/warehouse/${warehouseId}`)
+    navigate(`/edit/warehouse/${warehouseId}`)
   }
+
 
   const [openModal, setOpenModal] = useState(false);
 
